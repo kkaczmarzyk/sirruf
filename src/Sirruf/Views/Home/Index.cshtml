@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Sirruf.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <h3><a href="/Purchases/UserPurchases">Your Purchases</a></h3>
+        </div>
+        <div class="col-md-3">
+            <h3><a href="/Categories/UserCategories">Your Categories</a></h3>
+        </div>
+        <div class="col-md-3">
+            <h3><a href="/Strategies/UserStrategies">Your Strategies</a></h3>
+        </div>
+        <div class="col-md-3">
+            <h3><a href="/Comments/UserComments">Your Comments</a></h3>
+        </div>
+    </div>
+}
+else
+{
+    <h3>Welcome in the application.</h3>
+    <p>Log in to get access to all functionalities of the page or stay unregistered and browse purchases that other users bought.</p>
+}
+
+
+
+
+
